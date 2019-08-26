@@ -1,0 +1,15 @@
+- name: windows playbook
+  hosts: all
+  vars:
+    product_id: 3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5
+
+  tasks:
+  - name: Install Visual C thingy
+    win_package:
+      path: https://download.microsoft.com/download/3/2/2/{{ product_id }}/vcredist_x64.exe
+      #product_id: '{CF2BEA3C-26EA-32F8-AA9B-331F7E34BA97}'
+      product_id: '{{ product_id }}'
+      arguments:
+      - /install
+      - /passive
+      - /norestart

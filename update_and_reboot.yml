@@ -1,0 +1,10 @@
+- name: update and reboot
+  hosts: all
+  tasks:
+  - name: ensure common OS updates are current
+    win_updates:
+    register: update_result
+
+  - name: reboot and wait for host if updates change require it
+    win_reboot:
+    when: update_result.reboot_required

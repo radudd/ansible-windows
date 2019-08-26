@@ -1,0 +1,9 @@
+- name: windows playbook
+  hosts: all
+
+  tasks:
+  - name: ensure local admin account exists
+    win_user:
+      name: localadmin
+      password: '{{ local_admin_password }}'
+      groups: Administrators

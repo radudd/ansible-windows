@@ -1,0 +1,14 @@
+- name: update domain and reboot
+  hosts: all
+  tasks:
+  - name: ensure domain membership
+    win_domain_membership: 
+      dns_domain_name: contoso.corp
+      domain_admin_user: '{{ domain_admin_username }}'
+      domain_admin_password: '{{ domain_admin_password }}'
+      state: domain
+    register: domain_result
+
+  - name: reboot and wait for host if domain change require it
+    win_reboot:
+    when: domain_result.reboot_required
