@@ -4,6 +4,6 @@
   tasks:
   - name: ensure local admin account exists
     win_user:
-      name: localadmin
+      name: '{{ local_admin_username }}'
       password: '{{ local_admin_password }}'
       groups: Administrators
