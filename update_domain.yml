@@ -1,5 +1,5 @@
 - name: update domain and reboot
-  hosts: all
+  hosts: nodes
   tasks:
   - name: ensure domain membership
     win_domain_membership: 
