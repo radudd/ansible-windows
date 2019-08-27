@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 --- 
 hosts: all
 vars_files: 
@@ -22,34 +21,3 @@ vars_files:
       state_province: IN
       street: "123 4th St."
       surname: Smith
-
-=======
--
-  name: 'windows create aduser playbook'
-  hosts: all
--
-  name: 'get the variables'
-  include_vars: /group_vars/variables.yml
--
-  name: 'Ensure each account is created'
-  win_domain_user:
-    name: '{{ item.name }}'
-    upn: '{{ item.name }}@redhat.lab'
-    password: '{{ item.password }}'
-    password_never_expires: no
-    groups:
-      - 'Test User'
-      - Application
-    company: Ansible
-    update_password: on_create
-  loop:
-    -
-      name: 'Test User'
-      password: '{{ tuserpassword }}'
-    -
-      name: 'Admin User'
-      password: '{{ admuserpassword }}'
-    -
-      name: 'Dev User'
-      password: '{{ devuserpassword }}'
->>>>>>> 97d89f6cf54a3d1775717f8c5492bfb6d3d5722a
