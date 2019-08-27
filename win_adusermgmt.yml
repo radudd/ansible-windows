@@ -1,20 +1,24 @@
-- name: get the variables
-   include_vars: /group_vars/variables.yml
-- name: Ensure each account is created
-  win_domain_user:
-    name: '{{ item.name }}'
-    upn: '{{ item.name }}@redhat.lab'
-    password: '{{ item.password }}'
-    password_never_expires: no
-    groups:
-    - Test User
-    - Application
-    company: Ansible
-    update_password: on_create
-  loop:
-  - name: Test User
-    password: {{ tuserpassword }}
-  - name: Admin User
-    password: {{ admuserpassword }} 'SuperSecretPass01'
-  - name: Dev User
-    password: {{ devuserpassword }}'@fvr3IbFBujSRh!3hBg%wgFucD8^x8W5'
+--- 
+hosts: all
+vars_files: 
+  - group_vars/variables.yml
+  - 
+    name: "Ensure user bob is present with address information"
+    win_domain_user: 
+      attributes: 
+        telephoneNumber: 555-123456
+      city: Sometown
+      company: Ansible
+      country: US
+      firstname: Bob
+      groups: 
+        - "Test User"
+        - Application
+      name: boby
+      password: "{{ tuserpassword }}"
+      postal_code: 12345
+      state: present
+      state_province: IN
+      street: "123 4th St."
+      surname: Smith
+
