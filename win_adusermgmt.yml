@@ -15,6 +15,6 @@
   - name: Test User
     password: {{ tuserpassword }}
   - name: Admin User
-    password: {{ admuserpassword }} 'SuperSecretPass01'
+    password: {{ admuserpassword }}
   - name: Dev User
-    password: {{ devuserpassword }}'@fvr3IbFBujSRh!3hBg%wgFucD8^x8W5'
+    password: {{ devuserpassword }}
