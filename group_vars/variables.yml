@@ -1,0 +1,3 @@
+tuserpassword "{{ vault_testuserpw }}"
+admuserpassword "{{ vault_admuserpw }}"
+devuserpassword  "{{ vault_devuserpw }}"
