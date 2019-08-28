@@ -1,5 +1,10 @@
 - name: windows playbook
   hosts: all
+  vars: 
+    local_admin_user: test-user
+    local_admin_password: vault_local_admin_password
+  vars_files:
+  - vault.yml
 
   tasks:
   - name: ensure local admin account exists
