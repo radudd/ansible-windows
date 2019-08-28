@@ -1,0 +1,6 @@
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: show templating results
+    debug:
+      msg: "{{ lookup('template', './file.xml.j2') }}"

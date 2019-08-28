@@ -12,3 +12,9 @@
       name: '{{ local_admin_username }}'
       password: '{{ local_admin_password }}'
       groups: Administrators
+    register: user_created
+
+  - name: Export results
+    set_stats:
+      data: 
+        user_path: "{{ user_created.path }}"
