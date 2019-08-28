@@ -18,7 +18,7 @@
   - name: Get the hostname of the failed run
     set_fact: 
       hostname: "{{ ansible_hostname }}"
-    when: user_created | failed 
+    when: msg in user_created
 
   - name: Export results
     set_stats:
