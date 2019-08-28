@@ -13,6 +13,7 @@
       password: '{{ local_admin_password }}'
       groups: Administrators
     register: user_created
+    failed_when: false
 
   - name: Get the hostname of the failed run
     set_fact: 
