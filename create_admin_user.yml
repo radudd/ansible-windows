@@ -14,7 +14,13 @@
       groups: Administrators
     register: user_created
 
+  - name: Get the hostname of the failed run
+    set_fact: 
+      hostname: "{{ ansible_hostname }}"
+    when: user_created | failed 
+
   - name: Export results
     set_stats:
       data: 
         user_path: "{{ user_created.path }}"
+        hostname: "{{ hostname }}"
